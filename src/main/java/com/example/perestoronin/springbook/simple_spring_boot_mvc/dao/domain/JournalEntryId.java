@@ -1,6 +1,4 @@
 package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain;
 
-public enum Sex {
-    MAN,
-    WOMAN
+public enum JournalEntryId {
 }

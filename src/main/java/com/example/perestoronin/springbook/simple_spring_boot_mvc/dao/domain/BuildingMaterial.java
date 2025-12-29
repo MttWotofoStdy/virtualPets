@@ -11,21 +11,23 @@ import java.util.Objects;
 public class BuildingMaterial implements Serializable {
     @Id
     @Enumerated(EnumType.STRING)
-    private BuildingMaterialid id;
+    private BuildingMaterialId id;
     private int rucksackOrder;
     private int newbieBoxDropmin;
     private int newbieBoxDropmax;
     private float newbiewBoxDropRate;
     private float hiddenObjectsGameDropRate;
-public BuildingMaterial () {
-    super();
-}
-public BuildingMaterial(BuildingMaterialid id) {
-    super();
-    this.id = id;
-}
 
-    public BuildingMaterialid getId() {
+    public BuildingMaterial() {
+        super();
+    }
+
+    public BuildingMaterial(BuildingMaterialId id) {
+        super();
+        this.id = id;
+    }
+
+    public BuildingMaterialId getId() {
         return id;
     }
 
@@ -51,26 +53,28 @@ public BuildingMaterial(BuildingMaterialid id) {
 
     @Override
     public int hashCode() {
-    return Objects.hash(id);
+        return Objects.hash(id);
     }
+
     @Override
     public boolean equals(Object obj) {
-    if(this == obj)
-        return true;
-    if(obj == null)
-        return false;
-    if(getClass() != obj.getClass())
-        return false;
-    BuildingMaterial other = (BuildingMaterial) obj;
-    return id == other.id;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        BuildingMaterial other = (BuildingMaterial) obj;
+        return id == other.id;
 
     }
+
     @Override
     public String toString() {
-    return "BuildingMaterial [id= " + id + ", rucksackOrder= " + rucksackOrder +
-            ", newbieBoxDropMin= " + newbieBoxDropmin + ", newbieBoxDropMax= " + newbieBoxDropmax +
-            ", newbieBoxDropRate= " + newbiewBoxDropRate + ", hiddenObjectsGameDropRate= " + hiddenObjectsGameDropRate + "]";
-     }
+        return "BuildingMaterial [id= " + id + ", rucksackOrder= " + rucksackOrder +
+                ", newbieBoxDropMin= " + newbieBoxDropmin + ", newbieBoxDropMax= " + newbieBoxDropmax +
+                ", newbieBoxDropRate= " + newbiewBoxDropRate + ", hiddenObjectsGameDropRate= " + hiddenObjectsGameDropRate + "]";
+    }
 
 
 }

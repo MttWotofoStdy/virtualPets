@@ -1,5 +1,6 @@
 package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao;
 
+import com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Cloth;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 

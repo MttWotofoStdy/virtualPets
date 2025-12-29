@@ -19,7 +19,7 @@ public class Refrigerator implements Serializable {
     cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
     @MapKeyColumn(name ="building_material_id")
-    private Map<BuildingMaterialid, RefrigeratorCost> refrigeratorCosts;
+    private Map<BuildingMaterialId, RefrigeratorCost> refrigeratorCosts;
 
     public int getId(){
         return id;
@@ -37,12 +37,12 @@ public class Refrigerator implements Serializable {
         this.experience = experience;
     }
 
-    public Map<BuildingMaterialid, RefrigeratorCost>
+    public Map<BuildingMaterialId, RefrigeratorCost>
     getRefrigeratorCosts() {
         return refrigeratorCosts;
     }
 
-    public void setRefrigeratorCosts(Map<BuildingMaterialid,
+    public void setRefrigeratorCosts(Map<BuildingMaterialId,
             RefrigeratorCost> refrigeratorCosts) {
         this.refrigeratorCosts = refrigeratorCosts;
     }

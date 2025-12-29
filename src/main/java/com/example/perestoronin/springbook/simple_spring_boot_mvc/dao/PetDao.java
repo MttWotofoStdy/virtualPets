@@ -7,6 +7,12 @@ import java.util.Optional;
 public interface PetDao {
     public Optional<Pet> findByIdWithFullFoods(Integer id);
 
-    public Optional<Pet> findByIdWithJournalEntriesAndAchiements(
+    public Optional<Pet> findByIdWithJournalEntriesAndAchievements(
             Integer id);
+    public void delete(Pet fullPet);
+    public Optional<Pet> findByIdWithFullCloths(Integer id);
+    public Optional<Pet> findFullById(Integer id);
+    public void save(Pet pet);
+
+
 }

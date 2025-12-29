@@ -8,10 +8,10 @@ import java.util.Objects;
 @Entity(name = "pet_food")
 public class PetFood {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="pet_food_seq")
-    @SequenceGenerator(name="pet_food_seq",
-    sequenceName = "pet_food_id_seq", allocationSize = 1)
-private Integer id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_food_seq")
+    @SequenceGenerator(name = "pet_food_seq",
+            sequenceName = "pet_food_id_seq", allocationSize = 1)
+    private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     private Pet pet;
 
@@ -81,7 +81,5 @@ private Integer id;
                 + ", foodCount=" + foodCount
                 + ", version=" + version + "]";
     }
-
-}
 
 }

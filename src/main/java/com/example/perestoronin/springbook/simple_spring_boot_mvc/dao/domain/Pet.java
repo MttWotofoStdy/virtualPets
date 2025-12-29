@@ -12,15 +12,15 @@ import java.util.Set;
 @NamedEntityGraph(name = "pet.cloths",
         attributeNodes = @NamedAttributeNode("cloths")
 )
-@NamedEntityGraph( name = "pet.journalEntriesAndAchievements",
+@NamedEntityGraph(name = "pet.journalEntriesAndAchievements",
         attributeNodes = {
                 @NamedAttributeNode("journalEntries"),
                 @NamedAttributeNode("achievements")
         }
 )
 @NamedEntityGraph(name = "pet.foods",
-attributeNodes = @NamedAttributeNode(
-        value = "foods", subgraph = "pet.foods.food"),
+        attributeNodes = @NamedAttributeNode(
+                value = "foods", subgraph = "pet.foods.food"),
         subgraphs = @NamedSubgraph(
                 name = "pet.foods.food",
                 attributeNodes = @NamedAttributeNode("food")))
@@ -28,33 +28,34 @@ attributeNodes = @NamedAttributeNode(
 @Entity
 @Table(name = "pet")
 @NamedQuery(name = "Pet.findByUserId",
-query = "from Pet p where p.user.id = :userId")
+        query = "from Pet p where p.user.id = :userId")
 @NamedQuery(name = "Pet.findFullById", query = """
-from Pet p
-left outer join fetch p.level l
-left outer join fetch p.hat h1
-left outer join fetch p.cloth c1
-left outer join fetch p.bow  b1
-left outer join fetch p.user  u
-left outer join fetch p.cloths c
-left outer join fetch p.books b
-left outer join fetch p.foods f
-left outer join fetch p.buldingMaterials bm
-left outer join fetch bm.buildingMaterial 
-left outer join fetch p.journalEntries je
-left outer join fetch p.achievements ach
-where p.id :id""")
-
-
-
+        from Pet p
+        left outer join fetch p.level l
+        left outer join fetch p.hat h1
+        left outer join fetch p.cloth c1
+        left outer join fetch p.bow b1
+        left outer join fetch p.user u
+        left outer join fetch p.cloths c
+        left outer join fetch p.books b
+        left outer join fetch p.foods f
+        left outer join fetch p.buildingMaterials bm 
+        left outer join fetch bm.buildingMaterial 
+        left outer join fetch p.journalEntries je
+        left outer join fetch p.achievements ach
+        where p.id = :id
+        """)
 
 public class Pet implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     @SequenceGenerator(name = "pet_seq", sequenceName = "pet_id_seq", allocationSize = 1)
     private Integer id;
+
     @Version
     private int version;
+
     @Size(max = 50)
     private String name;
 
@@ -69,21 +70,21 @@ public class Pet implements Serializable {
     @Size(max = 50)
     private String comment;
 
-    @OneToMany(fetch = FetchType.LAZY);
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Enumerated
     private PetType petType;
 
-    @ManyToOne(fetch = FetchType.LAZY);
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cloth cloth;
 
-  @ManyToOne(fetch = FetchType.LAZY);
-      private Cloth hat;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Cloth hat;
 
-    @ManyToOne(fetch = FetchType.LAZY);
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cloth bow;
-
 
     private int experience = 0;
     private int teachCount = 0;
@@ -93,9 +94,6 @@ public class Pet implements Serializable {
     private int hiddenObjectsGameCount;
     private OffsetDateTime everyDayLoginLast;
     private int everyDayLoginCount;
-
-    @Version
-    private int version;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
@@ -111,18 +109,22 @@ public class Pet implements Serializable {
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
     @MapKeyColumn(name = "building_material_id")
-    private Map<BuildingMaterialid, PetbuildingMaterial> buildingMaterials;
+    private Map<BuildingMaterialId, PetBuildingMaterial> buildingMaterials;
 
     @ManyToMany
-    @JoinTable {
-        inverseJoinColumns = @JoinColumn(name = "book_id"))
-        private Set<Book> books;
+    @JoinTable(
+            name = "pet_book",
+            joinColumns = @JoinColumn(name = "pet_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
+    private Set<Book> books;
 
-        @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
-        @MapKeyEnumerated(EnumType.STRING)
-        @MapKeyColumn(name = "achievement_id")
-        private Map<AchievementId, PetAchievement> achievements;
-    }
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "achievement_id")
+    private Map<AchievementId, PetAchievement> achievements;
+
+    // --- ВСЕ МЕТОДЫ ДОЛЖНЫ БЫТЬ ВНУТРИ КЛАССА ---
 
     @Override
     public int hashCode() {
@@ -157,5 +159,5 @@ public class Pet implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-}
 
+}

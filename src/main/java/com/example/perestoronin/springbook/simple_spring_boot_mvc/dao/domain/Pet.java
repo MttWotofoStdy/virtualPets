@@ -52,7 +52,9 @@ public class Pet implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     @SequenceGenerator(name = "pet_seq", sequenceName = "pet_id_seq", allocationSize = 1)
     private Integer id;
-
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "journalEntryId")
+    private Map<JournalEntryId, PetJournalEntry> journalEntries;
     @Version
     private int version;
 
@@ -97,7 +99,7 @@ public class Pet implements Serializable {
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
-    @MapKeyColumn(name = "food_id")
+
     private Map<FoodId, PetFood> foods;
 
     @ManyToMany
@@ -108,7 +110,7 @@ public class Pet implements Serializable {
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
-    @MapKeyColumn(name = "building_material_id")
+
     private Map<BuildingMaterialId, PetBuildingMaterial> buildingMaterials;
 
     @ManyToMany
@@ -121,7 +123,7 @@ public class Pet implements Serializable {
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKeyEnumerated(EnumType.STRING)
-    @MapKeyColumn(name = "achievement_id")
+
     private Map<AchievementId, PetAchievement> achievements;
 
     // --- ВСЕ МЕТОДЫ ДОЛЖНЫ БЫТЬ ВНУТРИ КЛАССА ---

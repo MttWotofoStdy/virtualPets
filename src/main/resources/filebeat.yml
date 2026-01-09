@@ -1,0 +1,5 @@
+filebeat.inputs:
+  -type: filestream
+  id: default-filestream
+  paths:
+    -ingest_data/*.log

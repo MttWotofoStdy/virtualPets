@@ -1,0 +1,22 @@
+spring:
+  mail:
+    host: localhost
+    port: 8888
+    username: test
+    password: test
+
+    virtualpets-server-springboot:
+      play:
+        url: http://localhost:8081
+        version: 0.21
+        server:
+          -url: http://localhost:8080
+          mail:
+            from: springcloudmailform
+            subject: Spring cloud mail subject
+
+            logging:
+              level:
+                root: info
+                file:
+                  name: ./log/virtualpets_server_springboot.log

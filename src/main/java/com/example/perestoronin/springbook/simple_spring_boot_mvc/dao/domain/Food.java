@@ -1,58 +1,56 @@
 package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain;
 
 
-import io.micrometer.observation.annotation.ObservationKeyValue;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
-
 @Entity
 @Table(name = "food")
 public class Food implements Serializable {
+
     private static final long serialVersionUID = 8791181701061581183L;
+
 
     @Id
     @Enumerated(EnumType.STRING)
     private FoodId id;
-    @Column(name = "refregriratorId")
-    private int refregiratorLevel;
 
-    private int refregiratorOrder;
+    @Column(name = "refrigeratorId")
+    private int refrigeratorLevel;
 
-    private float hiddernObjectGameDropRate;
+    private int refrigeratorOrder;
+
+    private float hiddenObjectsGameDropRate;
 
     public Food() {
         super();
     }
 
-    public Food(FoodId id, int refregiratorLevel, int refregiratorOrder, float hiddernObjectGameDropRate) {
+
+    public Food(FoodId id, int refrigeratorLevel, int refrigeratorOrder,
+                float hiddenObjectsGameDropRate) {
         super();
         this.id = id;
-        this.refregiratorLevel = refregiratorLevel;
-        this.refregiratorOrder = refregiratorOrder;
-        this.hiddernObjectGameDropRate = hiddernObjectGameDropRate;
-
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        this.refrigeratorLevel = refrigeratorLevel;
+        this.refrigeratorOrder = refrigeratorOrder;
+        this.hiddenObjectsGameDropRate = hiddenObjectsGameDropRate;
     }
 
     public FoodId getId() {
         return id;
     }
 
-    public int getRefregiratorLevel() {
-        return refregiratorLevel;
+    public int getRefrigeratorLevel() {
+        return refrigeratorLevel;
     }
 
-    public int getRefregiratorOrder() {
-        return refregiratorOrder;
+    public int getRefrigeratorOrder() {
+        return refrigeratorOrder;
     }
 
-    public float getHiddernObjectGameDropRate() {
-        return hiddernObjectGameDropRate;
+    public float getHiddenObjectsGameDropRate() {
+        return hiddenObjectsGameDropRate;
     }
 
     @Override
@@ -70,5 +68,15 @@ public class Food implements Serializable {
             return false;
         Food other = (Food) obj;
         return id == other.id;
+    }
+
+    @Override
+    public String toString() {
+        return "Food [id=" + id
+                + ", refrigeratorLevel=" + refrigeratorLevel
+                + ", refrigeratorOrder=" + refrigeratorOrder
+                + ", hiddenObjectsGameDropRate="
+                + hiddenObjectsGameDropRate
+                + "]";
     }
 }

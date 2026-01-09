@@ -21,7 +21,7 @@ import jakarta.validation.constraints.Size;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 @NamedQuery(name = "findByLogin", query = "from User u where u.login=:login")
 @NamedQuery(name="list", query="from User")
 @NamedQuery(name="findByLoginAndPassword", query="from User u where u.login=:login and u.password=:password")

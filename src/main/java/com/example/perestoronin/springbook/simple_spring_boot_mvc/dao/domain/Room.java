@@ -1,8 +1,16 @@
 package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "room")
 public class Room {
     @Id
-    private Integer petId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+        @ManyToOne
+        private Pet pet; // ← должно быть поле pet, а не petId
+
 }

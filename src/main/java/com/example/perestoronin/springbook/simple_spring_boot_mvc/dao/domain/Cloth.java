@@ -11,6 +11,7 @@ public class Cloth {
 
     @Id
     private String id;
+
     @Enumerated(EnumType.STRING)
     private ClothType clothType;
 
@@ -18,12 +19,10 @@ public class Cloth {
 
     private float hiddenObjectsGameDropRate;
 
-    /**
-     * Конструктор по умолчанию требуется JPA для создания объекта.
-     */
     public Cloth() {
         super();
     }
+
 
     public Cloth(String id, ClothType clothType, int wardrobeOrder,
                  float hiddenObjectsGameDropRate) {
@@ -72,8 +71,4 @@ public class Cloth {
         return "Cloth [id=" + id + ", clothType=" + clothType
                 + ", wardrobeOrder=" + wardrobeOrder
                 + ", hiddenObjectsGameDropRate=" + hiddenObjectsGameDropRate
-                + "]";
-    }
-
-
-}
+                + "]";   }    }

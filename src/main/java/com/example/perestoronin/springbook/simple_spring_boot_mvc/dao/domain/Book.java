@@ -1,20 +1,14 @@
 package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain;
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.Objects;
-
-
-
-
 @Entity
 @Table(name = "book")
-public class    Book {
-    public static final String FIRST_BOOK_ID = "DESTINY";
+public class Book {
+
+    public static final String FIRST_BOOOK_ID = "DESTINY";
 
     @Id
     private String id;
@@ -30,6 +24,7 @@ public class    Book {
         super();
     }
 
+
     public Book(String id, int bookcaseLevel, int bookcaseOrder,
                 float hiddenObjectsGameDropRate) {
         super();
@@ -37,6 +32,22 @@ public class    Book {
         this.bookcaseLevel = bookcaseLevel;
         this.bookcaseOrder = bookcaseOrder;
         this.hiddenObjectsGameDropRate = hiddenObjectsGameDropRate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getBookcaseLevel() {
+        return bookcaseLevel;
+    }
+
+    public int getBookcaseOrder() {
+        return bookcaseOrder;
+    }
+
+    public float getHiddenObjectsGameDropRate() {
+        return hiddenObjectsGameDropRate;
     }
 
     @Override
@@ -56,4 +67,12 @@ public class    Book {
         return Objects.equals(id, other.id);
     }
 
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", bookcaseLevel=" + bookcaseLevel
+                + ", bookcaseOrder=" + bookcaseOrder
+                + ", hiddenObjectsGameDropRate="
+                + hiddenObjectsGameDropRate
+                + "]";
+    }
 }

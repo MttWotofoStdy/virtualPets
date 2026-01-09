@@ -9,24 +9,21 @@ import java.util.Objects;
 @Table(name = "level")
 public class Level implements Serializable {
 
+    private static final long serialVersionUID = 1477585564717835763L;
+
     @Id
     private int id;
 
     private int experience;
 
+
     public Level() {
+
     }
+
 
     public Level(int id, int experience) {
         this.id = id;
-        this.experience = experience;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setExperience(int experience) {
         this.experience = experience;
     }
 
@@ -34,29 +31,37 @@ public class Level implements Serializable {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getExperience() {
         return experience;
     }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(id);
     }
+
     @Override
-    public boolean equals(Object obj){
-        if(this == obj ) {
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        }
-        if(obj == null){
+        if (obj == null)
             return false;
-        }
-        if(getClass() != obj.getClass()){
+        if (getClass() != obj.getClass())
             return false;
-        }
         Level other = (Level) obj;
         return Objects.equals(id, other.id);
     }
+
     @Override
-    public String toString(){
-return "[Level [id = " + id + ", experience = " +experience + "]";
+    public String toString() {
+        return "Level [id=" + id + ", experience=" + experience + "]";
     }
 }

@@ -1,4 +1,4 @@
-package com.example.perestoronin.springbook.simple_spring_boot_mvc.configuration;
+package com.example.perestoronin.springbook.simple_spring_boot_mvc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -2,18 +2,7 @@ package com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 
 /**
  * Запись о достижении питомца.
@@ -26,16 +15,15 @@ public class PetAchievement {
      * Первичный ключ записи. Генерируемый.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="pet_achievement_seq")
-    @SequenceGenerator(name="pet_achievement_seq",
-            sequenceName="pet_achievement_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "achievement_id")
     @Enumerated(EnumType.STRING)
-    private AchievementId achievement;
+    @Column(name = "achievement_id") // ← ключ для Map
+    private AchievementId achievementId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     /**
@@ -58,11 +46,11 @@ public class PetAchievement {
     }
 
     public AchievementId getAchievement() {
-        return achievement;
+        return achievementId;
     }
 
     public void setAchievement(AchievementId achievement) {
-        this.achievement = achievement;
+        this.achievementId = achievement;
     }
 
     public Pet getPet() {
@@ -100,7 +88,7 @@ public class PetAchievement {
 
     @Override
     public String toString() {
-        return "PetAchievement [id=" + id + ", achievement=" + achievement
+        return "PetAchievement [id=" + id + ", achievement=" + achievementId
                 + ", pet=" + pet + ", wasShown=" + wasShown + ", version="
                 + version + "]";
     }

@@ -1,0 +1,49 @@
+11.01.2026 06:26:55.338 [main] INFO  c.e.p.s.s.SimpleSpringBootMvcApplication - Starting SimpleSpringBootMvcApplication using Java 17.0.14 with PID 5724 (D:\JavaProjects\springBookProject\simple-spring-boot-mvc\target\classes started by Eduard in D:\JavaProjects\springBookProject\simple-spring-boot-mvc)
+11.01.2026 06:26:55.340 [main] INFO  c.e.p.s.s.SimpleSpringBootMvcApplication - No active profile set, falling back to 1 default profile: "default"
+11.01.2026 06:26:55.522 [background-preinit] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+11.01.2026 06:26:55.771 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11.01.2026 06:26:55.831 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 4 JPA repository interfaces.
+11.01.2026 06:26:56.183 [main] INFO  o.s.b.t.TomcatWebServer - Tomcat initialized with port 8888 (http)
+11.01.2026 06:26:56.192 [main] INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+11.01.2026 06:26:56.192 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+11.01.2026 06:26:56.193 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+11.01.2026 06:26:56.229 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 862 ms
+11.01.2026 06:26:56.329 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11.01.2026 06:26:56.386 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 7.1.8.Final
+11.01.2026 06:26:56.722 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11.01.2026 06:26:56.748 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+11.01.2026 06:26:57.210 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6ff8e744
+11.01.2026 06:26:57.211 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+11.01.2026 06:26:58.439 [main] INFO  o.h.o.c.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/myPetMVC]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.4
+	Default catalog/schema: myPetMVC/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+11.01.2026 06:26:58.568 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Pet.achievements' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:58.571 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Pet.buildingMaterials' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:58.572 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Pet.drinks' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:58.573 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Pet.foods' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:58.573 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Pet.journalEntries' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:58.578 [main] WARN  o.h.b.m.i.CollectionBinder - Association 'com.example.perestoronin.springbook.simple_spring_boot_mvc.dao.domain.Refrigerator.refrigeratorCosts' is 'mappedBy' another entity and should not specify a '@MapKeyColumn' (use '@MapKey' instead)
+11.01.2026 06:26:59.224 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+11.01.2026 06:27:00.654 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11.01.2026 06:27:00.685 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11.01.2026 06:27:00.875 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+11.01.2026 06:27:01.037 [main] INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+11.01.2026 06:27:01.048 [main] INFO  o.s.b.t.TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+11.01.2026 06:27:01.051 [main] INFO  c.e.p.s.s.SimpleSpringBootMvcApplication - Started SimpleSpringBootMvcApplication in 5.967 seconds (process running for 6.464)
+11.01.2026 06:27:10.801 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11.01.2026 06:27:10.802 [http-nio-8888-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11.01.2026 06:27:10.802 [http-nio-8888-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 0 ms
+11.01.2026 06:27:20.450 [SpringApplicationShutdownHook] INFO  o.s.b.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+11.01.2026 06:27:20.460 [tomcat-shutdown] INFO  o.s.b.t.GracefulShutdown - Graceful shutdown complete
+11.01.2026 06:27:20.463 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11.01.2026 06:27:20.464 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11.01.2026 06:27:20.465 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

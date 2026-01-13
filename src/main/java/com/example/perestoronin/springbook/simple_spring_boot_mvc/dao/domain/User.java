@@ -31,12 +31,18 @@ public class User implements Serializable{
 
     private static final long serialVersionUID = 6592049980085443679L;
 
+    /**
+     * Первичный ключ. Генерируемый.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_seq")
     @SequenceGenerator(name="user_seq",
-            sequenceName="user_id_seq", allocationSize = 1)
+            sequenceName="user_id_seq", allocationSize=1)
     private Integer id;
 
+    /**
+     * Логин. Натуральный ключ.
+     */
     @Column(name = "login")
     @Size(max = 50)
     private String login;
@@ -51,7 +57,6 @@ public class User implements Serializable{
 
     @Column(name = "enabled")
     private boolean enabled;
-
 
     @Column(name = "registration_date")
     private OffsetDateTime registrationDate;
@@ -129,16 +134,16 @@ public class User implements Serializable{
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public OffsetDateTime getRegistrationDate() {
@@ -212,6 +217,7 @@ public class User implements Serializable{
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
 
     public String getEmail() {
         return email;
